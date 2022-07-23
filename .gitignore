@@ -59,6 +59,7 @@ sysinfo.txt
 crashlytics-build.properties
 
 # Large Skybox Files
-Assets/NebulaSkyboxes/
-Assets/Nebula\ Skyboxes/
+[Aa]ssets/NebulaSkyboxes/
+[Aa]ssets/NebulaSkyboxes.meta
+[Aa]ssets/Nebula\ Skyboxes/
 *.exr
