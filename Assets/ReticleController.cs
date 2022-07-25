@@ -7,6 +7,7 @@ public class ReticleController : MonoBehaviour
     public bool isReticleNear = false;
     public Transform playerTransform;
     public float distanceOffset = 10.0f;
+    public float rotationSpeed = 0.0f;
 
     void Start()
     {

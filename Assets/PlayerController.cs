@@ -90,6 +90,11 @@ public class PlayerController : MonoBehaviour
     }
 
     void OnCollisionEnter(Collision other) {
+        if (other.gameObject.CompareTag("Missile"))
+        {
+            return;
+        }
+
         if (currentHealth <= 0)
         {
             PlayerDeath();

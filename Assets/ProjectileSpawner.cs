@@ -7,6 +7,7 @@ public class ProjectileSpawner : MonoBehaviour
     public GameObject laserPrefab;
     public Transform aimTarget;
     public float fireRate = 1f;
+    public string fireButton = "Fire1";
     private bool firePressed;
     private float fireTimer = 0.0f;
 
@@ -18,7 +19,7 @@ public class ProjectileSpawner : MonoBehaviour
     void Update()
     {
         GameObject newLaser;
-        firePressed = Input.GetAxis("Fire1") != 0;
+        firePressed = Input.GetAxis(fireButton) != 0;
         fireTimer -= Time.deltaTime;
         if (firePressed && fireTimer <= 0) {
             newLaser = GameObject.Instantiate(laserPrefab);
