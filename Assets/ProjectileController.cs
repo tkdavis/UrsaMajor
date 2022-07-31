@@ -22,15 +22,9 @@ public class ProjectileController : MonoBehaviour
         transform.position = transform.position + transform.forward * speed * Time.deltaTime;
     }
 
-    private void OnCollisionEnter(Collision other) {
-        // if (other.gameObject.CompareTag("Player"))
-        // {
-        //     Debug.Log("PLAYER HIT BY PROJECTILE!!!");
-        //     playerController.TakeDamage();
-        // } else
-        // {
-            Instantiate(explosionPrefab, transform.position, Quaternion.identity);
-        // }
+    private void OnCollisionEnter(Collision other)
+    {
+        Instantiate(explosionPrefab, transform.position, Quaternion.identity);
         Object.Destroy(gameObject);
     }
 }

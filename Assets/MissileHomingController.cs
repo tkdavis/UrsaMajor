@@ -10,7 +10,6 @@ public class MissileHomingController : MonoBehaviour
     public float maxSpeed = 100;
     public float animeMin = 0;
     public float animeMax = 40;
-    public GameObject[] enemiesLockedOn;
     GameObject[] enemies;
     float randomNum;
     Vector3 randomDir;
@@ -109,12 +108,10 @@ public class MissileHomingController : MonoBehaviour
         foreach (GameObject enemy in enemies)
         {
             EnemyController enemyController = enemy.GetComponent<EnemyController>();
-            Debug.Log(enemyController.markedForTracking.ToString() + " : " + enemy.name);
             if (enemyController.markedForTracking)
             {
                 enemyController.markedForTracking = false;
                 target = enemy;
-                Debug.LogWarning("Target set to: " + enemy.name);
                 break;
             }
         }

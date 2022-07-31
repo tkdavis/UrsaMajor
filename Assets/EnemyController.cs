@@ -41,7 +41,7 @@ public class EnemyController : MonoBehaviour
     void Update()
     {
         inRangeOfPlayer = true;
-        // transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(targetTransform.position), Mathf.Deg2Rad * lookSpeed * Time.deltaTime);
+
         if (!wasShotDown && !isAttacking)
         {
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(-rb.velocity), Time.deltaTime * 4);

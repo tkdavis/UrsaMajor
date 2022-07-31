@@ -78,7 +78,6 @@ public class PlayerController : MonoBehaviour
 
     void RotationLook()
     {
-        // aimTarget.parent.position = Vector3.zero;
         aimTarget.localPosition = new Vector3(hMove, vMove, 4);
         transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(aimTarget.position), Mathf.Deg2Rad * lookSpeed * Time.deltaTime);
     }

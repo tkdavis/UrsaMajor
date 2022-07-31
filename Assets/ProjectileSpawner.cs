@@ -29,23 +29,11 @@ public class ProjectileSpawner : MonoBehaviour
         }
 
         fireTimer -= Time.deltaTime;
-        if (/*laserPrefab.CompareTag("Projectile") && */firePressed && fireTimer <= 0) {
+        if (firePressed && fireTimer <= 0) {
             newLaser = GameObject.Instantiate(laserPrefab);
             newLaser.transform.position = transform.position;
             newLaser.transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(aimTarget.position), Time.deltaTime);
             fireTimer = fireRate;
-        }/* else if (laserPrefab.CompareTag("Missile") && firePressed && fireTimer <= 0)
-        {
-            StartCoroutine(DelayInstantiate());
-            fireTimer = fireRate;
-        }*/
+        }
     }
-
-    // IEnumerator DelayInstantiate()
-    // {
-    //     yield return new WaitForSecondsRealtime(delay);
-    //     newLaser = GameObject.Instantiate(laserPrefab);
-    //     newLaser.transform.position = transform.position;
-    //     newLaser.transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(aimTarget.position), Time.deltaTime);
-    // }
 }

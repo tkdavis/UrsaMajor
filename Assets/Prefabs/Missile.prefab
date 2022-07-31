@@ -119,6 +119,7 @@ MonoBehaviour:
   maxSpeed: 125
   animeMin: 0
   animeMax: 40
+  enemiesLockedOn: []
 --- !u!54 &3474176759195382434
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -16,11 +16,6 @@ public class LockOnManager : MonoBehaviour
     GameObject[] enemies;
     EnemyController enemyController;
 
-    void Start()
-    {
-    }
-
-    // Update is called once per frame
     void Update()
     {
         missileBtnPressed = Input.GetButton("Fire2");
