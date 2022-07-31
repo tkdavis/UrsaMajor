@@ -7,6 +7,8 @@ public class LockOnManager : MonoBehaviour
     public Camera currentCamera;
     public GameObject reticleLockOnPrefab;
     public float randomDelayMax = 4.0f;
+    public int maxTargets = 4;
+    int targetCount = 0;
     float randomDelay;
     bool onScreen;
     Vector3 screenPoint;
@@ -24,20 +26,29 @@ public class LockOnManager : MonoBehaviour
         {
             screenPoint = currentCamera.WorldToViewportPoint(enemy.transform.position);
             onScreen = screenPoint.z > 0 && screenPoint.x > 0 && screenPoint.x < 1 && screenPoint.y > 0 && screenPoint.y < 1;
-
-            if (onScreen && !enemy.GetComponent<EnemyController>().hasReticle)
+            
+            if (onScreen && !enemy.GetComponent<EnemyController>().reticle)
             {
                 randomDelay = Random.Range(0.0f, randomDelayMax);
                 StartCoroutine(DelayInstantiate(randomDelay, enemy));
-                enemy.GetComponent<EnemyController>().hasReticle = true;
+            } else if (!onScreen && enemy.GetComponent<EnemyController>().reticle)
+            {
+                targetCount -= 1;
+                Object.Destroy(enemy.GetComponent<EnemyController>().reticle);
             }
         }
+        Debug.Log(targetCount);
     }
 
     IEnumerator DelayInstantiate(float delay, GameObject enemy)
     {
         yield return new WaitForSecondsRealtime(delay);
-        GameObject newReticle = Instantiate(reticleLockOnPrefab);
-        newReticle.GetComponent<ReticleLockController>().target = enemy.transform;
+        if (!enemy.GetComponent<EnemyController>().reticle && targetCount < maxTargets)
+        {
+            targetCount += 1;
+            GameObject newReticle = Instantiate(reticleLockOnPrefab);
+            newReticle.GetComponent<ReticleLockController>().target = enemy.transform;
+            enemy.GetComponent<EnemyController>().reticle = newReticle;
+        }
     }
 }

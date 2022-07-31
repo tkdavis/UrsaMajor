@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 2138677392}
-  m_IndirectSpecularColor: {r: 0.002920366, g: 0.0019177067, b: 0.0021366123, a: 1}
+  m_IndirectSpecularColor: {r: 0.0052009523, g: 0.003415759, b: 0.0038060981, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -24659,7 +24659,7 @@ MonoBehaviour:
   maxSpeed: 24
   lookSpeed: 0.01
   laserPrefab: {fileID: 6097221026421870012, guid: 3fe2e6a0cca400e41a7dc6680031b2d6, type: 3}
-  hasReticle: 0
+  reticle: {fileID: 0}
 --- !u!54 &414447611
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -24815,7 +24815,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.9155555, y: 1}
+    m_SensorSize: {x: 5.89172, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -24974,7 +24974,7 @@ MonoBehaviour:
   maxSpeed: 24
   lookSpeed: 0.01
   laserPrefab: {fileID: 6097221026421870012, guid: 3fe2e6a0cca400e41a7dc6680031b2d6, type: 3}
-  hasReticle: 0
+  reticle: {fileID: 0}
 --- !u!54 &612309868
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -25116,6 +25116,7 @@ MonoBehaviour:
   currentCamera: {fileID: 1687258584}
   reticleLockOnPrefab: {fileID: 8249807520125263243, guid: be30603bcde2d2141917abb4e81c73cd, type: 3}
   randomDelayMax: 2
+  maxTargets: 4
 --- !u!4 &619274910
 Transform:
   m_ObjectHideFlags: 0
@@ -35087,7 +35088,7 @@ MonoBehaviour:
   maxSpeed: 24
   lookSpeed: 0.01
   laserPrefab: {fileID: 6097221026421870012, guid: 3fe2e6a0cca400e41a7dc6680031b2d6, type: 3}
-  hasReticle: 0
+  reticle: {fileID: 0}
 --- !u!54 &1195314941
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -44928,7 +44929,7 @@ MonoBehaviour:
   maxSpeed: 24
   lookSpeed: 0.01
   laserPrefab: {fileID: 6097221026421870012, guid: 3fe2e6a0cca400e41a7dc6680031b2d6, type: 3}
-  hasReticle: 0
+  reticle: {fileID: 0}
 --- !u!54 &1396295470
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -64594,7 +64595,7 @@ MonoBehaviour:
   maxSpeed: 24
   lookSpeed: 0.01
   laserPrefab: {fileID: 6097221026421870012, guid: 3fe2e6a0cca400e41a7dc6680031b2d6, type: 3}
-  hasReticle: 0
+  reticle: {fileID: 0}
 --- !u!54 &1641225276
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -65269,7 +65270,7 @@ MonoBehaviour:
   maxSpeed: 24
   lookSpeed: 0.01
   laserPrefab: {fileID: 6097221026421870012, guid: 3fe2e6a0cca400e41a7dc6680031b2d6, type: 3}
-  hasReticle: 0
+  reticle: {fileID: 0}
 --- !u!54 &1760892871
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -65484,7 +65485,7 @@ MonoBehaviour:
   maxSpeed: 24
   lookSpeed: 0.01
   laserPrefab: {fileID: 6097221026421870012, guid: 3fe2e6a0cca400e41a7dc6680031b2d6, type: 3}
-  hasReticle: 0
+  reticle: {fileID: 0}
 --- !u!54 &1834971790
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -75261,7 +75262,7 @@ MonoBehaviour:
   maxSpeed: 24
   lookSpeed: 0.01
   laserPrefab: {fileID: 6097221026421870012, guid: 3fe2e6a0cca400e41a7dc6680031b2d6, type: 3}
-  hasReticle: 0
+  reticle: {fileID: 0}
 --- !u!54 &1931292296
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -94764,7 +94765,7 @@ MonoBehaviour:
   maxSpeed: 24
   lookSpeed: 0.01
   laserPrefab: {fileID: 6097221026421870012, guid: 3fe2e6a0cca400e41a7dc6680031b2d6, type: 3}
-  hasReticle: 0
+  reticle: {fileID: 0}
 --- !u!54 &2123648203
 Rigidbody:
   m_ObjectHideFlags: 0

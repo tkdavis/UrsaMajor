@@ -11,7 +11,7 @@ public class EnemyController : MonoBehaviour
     public float maxSpeed = 24.0f;
     public float lookSpeed = 0.01f;
     public GameObject laserPrefab;
-    public bool hasReticle = false;
+    public GameObject reticle;
     private bool inRangeOfPlayer = false;
     private bool isAvoiding = false;
     private bool isAttacking = false;
@@ -63,9 +63,9 @@ public class EnemyController : MonoBehaviour
             ChasePlayer();
         } else if (isAttacking && !isAvoiding)
         {
-            // Attack();
+            Attack();
             // temp vv
-            ChasePlayer();
+            // ChasePlayer();
         }
 
         rb.AddForce(moveDirection * speed * throttle);
