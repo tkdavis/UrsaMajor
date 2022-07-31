@@ -24660,6 +24660,7 @@ MonoBehaviour:
   lookSpeed: 0.01
   laserPrefab: {fileID: 6097221026421870012, guid: 3fe2e6a0cca400e41a7dc6680031b2d6, type: 3}
   reticle: {fileID: 0}
+  markedForTracking: 0
 --- !u!54 &414447611
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -24815,7 +24816,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 5.89172, y: 1}
+    m_SensorSize: {x: 5.948553, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -24975,6 +24976,7 @@ MonoBehaviour:
   lookSpeed: 0.01
   laserPrefab: {fileID: 6097221026421870012, guid: 3fe2e6a0cca400e41a7dc6680031b2d6, type: 3}
   reticle: {fileID: 0}
+  markedForTracking: 0
 --- !u!54 &612309868
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -35089,6 +35091,7 @@ MonoBehaviour:
   lookSpeed: 0.01
   laserPrefab: {fileID: 6097221026421870012, guid: 3fe2e6a0cca400e41a7dc6680031b2d6, type: 3}
   reticle: {fileID: 0}
+  markedForTracking: 0
 --- !u!54 &1195314941
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -44930,6 +44933,7 @@ MonoBehaviour:
   lookSpeed: 0.01
   laserPrefab: {fileID: 6097221026421870012, guid: 3fe2e6a0cca400e41a7dc6680031b2d6, type: 3}
   reticle: {fileID: 0}
+  markedForTracking: 0
 --- !u!54 &1396295470
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -64596,6 +64600,7 @@ MonoBehaviour:
   lookSpeed: 0.01
   laserPrefab: {fileID: 6097221026421870012, guid: 3fe2e6a0cca400e41a7dc6680031b2d6, type: 3}
   reticle: {fileID: 0}
+  markedForTracking: 0
 --- !u!54 &1641225276
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -65271,6 +65276,7 @@ MonoBehaviour:
   lookSpeed: 0.01
   laserPrefab: {fileID: 6097221026421870012, guid: 3fe2e6a0cca400e41a7dc6680031b2d6, type: 3}
   reticle: {fileID: 0}
+  markedForTracking: 0
 --- !u!54 &1760892871
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -65486,6 +65492,7 @@ MonoBehaviour:
   lookSpeed: 0.01
   laserPrefab: {fileID: 6097221026421870012, guid: 3fe2e6a0cca400e41a7dc6680031b2d6, type: 3}
   reticle: {fileID: 0}
+  markedForTracking: 0
 --- !u!54 &1834971790
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -75263,6 +75270,7 @@ MonoBehaviour:
   lookSpeed: 0.01
   laserPrefab: {fileID: 6097221026421870012, guid: 3fe2e6a0cca400e41a7dc6680031b2d6, type: 3}
   reticle: {fileID: 0}
+  markedForTracking: 0
 --- !u!54 &1931292296
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -94766,6 +94774,7 @@ MonoBehaviour:
   lookSpeed: 0.01
   laserPrefab: {fileID: 6097221026421870012, guid: 3fe2e6a0cca400e41a7dc6680031b2d6, type: 3}
   reticle: {fileID: 0}
+  markedForTracking: 0
 --- !u!54 &2123648203
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -95128,6 +95137,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 1411605659}
     m_Modifications:
     - target: {fileID: 384557908, guid: 6a14481dfdb7d3747ad4780d2cea75aa, type: 3}
+      propertyPath: delay
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 384557908, guid: 6a14481dfdb7d3747ad4780d2cea75aa, type: 3}
       propertyPath: aimTarget
       value: 
       objectReference: {fileID: 173815044}
@@ -95136,13 +95149,25 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 173815044}
     - target: {fileID: 1556369962, guid: 6a14481dfdb7d3747ad4780d2cea75aa, type: 3}
+      propertyPath: delay
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1556369962, guid: 6a14481dfdb7d3747ad4780d2cea75aa, type: 3}
       propertyPath: aimTarget
       value: 
       objectReference: {fileID: 173815044}
     - target: {fileID: 2068362678, guid: 6a14481dfdb7d3747ad4780d2cea75aa, type: 3}
+      propertyPath: delay
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2068362678, guid: 6a14481dfdb7d3747ad4780d2cea75aa, type: 3}
       propertyPath: aimTarget
       value: 
       objectReference: {fileID: 173815044}
+    - target: {fileID: 2092308764, guid: 6a14481dfdb7d3747ad4780d2cea75aa, type: 3}
+      propertyPath: delay
+      value: 0.8
+      objectReference: {fileID: 0}
     - target: {fileID: 2092308764, guid: 6a14481dfdb7d3747ad4780d2cea75aa, type: 3}
       propertyPath: aimTarget
       value: 

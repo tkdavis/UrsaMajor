@@ -23,7 +23,13 @@ public class ReticleLockController : MonoBehaviour
         {
             transform.localScale = finalScale;
         }
-        transform.position = target.position;
+        // should the LockOnManager handle this and decrement targetCount? ughhhh
+        if (target)
+        {
+            transform.position = target.position;
+        } else {
+            GameObject.Destroy(gameObject);
+        }
         transform.Rotate(0, 0, 540 * Time.deltaTime);
         transform.LookAt(mainCamera.transform);
     }

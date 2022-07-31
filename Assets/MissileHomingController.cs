@@ -10,9 +10,10 @@ public class MissileHomingController : MonoBehaviour
     public float maxSpeed = 100;
     public float animeMin = 0;
     public float animeMax = 40;
+    public GameObject[] enemiesLockedOn;
+    GameObject[] enemies;
     float randomNum;
     Vector3 randomDir;
-    float initialDist;
     Rigidbody rb;
     bool hasExploded;
     float animeCircleFrequency;
@@ -22,8 +23,7 @@ public class MissileHomingController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         player = GameObject.FindGameObjectWithTag("Player");
-        target = GameObject.FindGameObjectWithTag("Enemy");
-        initialDist = Vector3.Distance(target.transform.position, transform.position);
+        TargetLockedOnEnemy();
 
         randomNum = Random.Range(0,3);
         if (randomNum == 0)
@@ -41,7 +41,6 @@ public class MissileHomingController : MonoBehaviour
         hasExploded = false;
 
         rb.velocity = player.GetComponent<Rigidbody>().velocity;
-        Debug.Log(rb.velocity);
         RandomAnimeCircle();
     }
 
@@ -55,16 +54,15 @@ public class MissileHomingController : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (target == null)
+        {
+            return;
+        }
+
         float currentDistFromTarget = Vector3.Distance(target.transform.position, transform.position);
         Vector3 direction;
         Vector3 desiredVelocity;
         Vector3 steeringForce;
-
-        if (target == null)
-        {
-            target = GameObject.FindGameObjectWithTag("Enemy");
-            return;
-        }
 
         direction = (target.transform.position - transform.position).normalized;
         desiredVelocity = direction * maxSpeed;
@@ -74,7 +72,7 @@ public class MissileHomingController : MonoBehaviour
         transform.RotateAround(transform.position, transform.forward, animeCircleFrequency);
     }
 
-    private void OnDrawGizmos()
+    void OnDrawGizmos()
     {
         if (target != null)
         {
@@ -103,5 +101,22 @@ public class MissileHomingController : MonoBehaviour
         float randomSign = Mathf.Sign(Random.Range(-1, 1));
         animeCircleFrequency = Random.Range(-10, 10);
         animeCircleRadius = Random.Range(animeMin, animeMax) * randomSign;
+    }
+
+    void TargetLockedOnEnemy()
+    {
+        enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        foreach (GameObject enemy in enemies)
+        {
+            EnemyController enemyController = enemy.GetComponent<EnemyController>();
+            Debug.Log(enemyController.markedForTracking.ToString() + " : " + enemy.name);
+            if (enemyController.markedForTracking)
+            {
+                enemyController.markedForTracking = false;
+                target = enemy;
+                Debug.LogWarning("Target set to: " + enemy.name);
+                break;
+            }
+        }
     }
 }

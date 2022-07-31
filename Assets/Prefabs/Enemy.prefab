@@ -9840,3 +9840,6 @@ MonoBehaviour:
   maxSpeed: 24
   lookSpeed: 0.01
   laserPrefab: {fileID: 6097221026421870012, guid: 3fe2e6a0cca400e41a7dc6680031b2d6, type: 3}
+  reticle: {fileID: 0}
+  markedForTracking: 0
+  missileIsTracking: 0

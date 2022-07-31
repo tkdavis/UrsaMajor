@@ -12,6 +12,7 @@ public class EnemyController : MonoBehaviour
     public float lookSpeed = 0.01f;
     public GameObject laserPrefab;
     public GameObject reticle;
+    public bool markedForTracking = false;
     private bool inRangeOfPlayer = false;
     private bool isAvoiding = false;
     private bool isAttacking = false;
@@ -99,9 +100,11 @@ public class EnemyController : MonoBehaviour
     }
 
     void OnCollisionEnter(Collision other) {
-        if (other.gameObject.CompareTag("Projectile"))
+        if (other.gameObject.CompareTag("Projectile") || other.gameObject.CompareTag("Missile"))
         {
             wasShotDown = true;
+            markedForTracking = false;
+            GameObject.Destroy(gameObject, 3.0f);
         }
     }
 
