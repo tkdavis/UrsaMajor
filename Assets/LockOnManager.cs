@@ -68,9 +68,8 @@ public class LockOnManager : MonoBehaviour
 
         if (!enemy)
         {
-            Debug.LogWarning("Enemy is null after delayed lockon.");
-        }
-        else if (missileBtnPressed && !enemy.GetComponent<EnemyController>().reticle && targetCount < maxTargets)
+            // Debug.LogWarning("Enemy is null after delayed lockon.");
+        } else if (missileBtnPressed && !enemy.GetComponent<EnemyController>().reticle && targetCount < maxTargets)
         {
             EnemyController enemyController = enemy.GetComponent<EnemyController>();
             targetCount += 1;
