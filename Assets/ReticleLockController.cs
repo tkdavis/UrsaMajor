@@ -6,7 +6,8 @@ public class ReticleLockController : MonoBehaviour
 {
     public Transform target;
     public Vector3 finalScale = Vector3.one * 6.0f;
-    private Camera mainCamera;
+    Camera mainCamera;
+    float currentRotationZ;
 
     void Start()
     {
@@ -29,7 +30,10 @@ public class ReticleLockController : MonoBehaviour
         } else {
             GameObject.Destroy(gameObject);
         }
-        transform.Rotate(0, 0, 540 * Time.deltaTime);
-        transform.LookAt(mainCamera.transform);
+
+        Quaternion lookRotation = Quaternion.LookRotation(mainCamera.transform.position - transform.position, Vector3.up);
+        currentRotationZ = transform.rotation.eulerAngles.z;
+        Quaternion finalRotation = Quaternion.Euler(lookRotation.eulerAngles.x, lookRotation.eulerAngles.y, currentRotationZ += 360 * Time.deltaTime);
+        transform.rotation = finalRotation;
     }
 }

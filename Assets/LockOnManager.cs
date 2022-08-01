@@ -19,28 +19,50 @@ public class LockOnManager : MonoBehaviour
     void Update()
     {
         missileBtnPressed = Input.GetButton("Fire2");
+
+        UpdateLockOnReticles();
+    }
+
+    void UpdateLockOnReticles()
+    {
+        // this is expensive call for update, let's try to do it only on button pressed instead of update.
         enemies = GameObject.FindGameObjectsWithTag("Enemy");
 
         foreach (GameObject enemy in enemies)
         {
             enemyController = enemy.GetComponent<EnemyController>();
-            screenPoint = currentCamera.WorldToViewportPoint(enemy.transform.position);
-            onScreen = screenPoint.z > 0 && screenPoint.x > 0 && screenPoint.x < 1 && screenPoint.y > 0 && screenPoint.y < 1;
+            CheckEnemyIsOnScreen(enemy);
         
             if (missileBtnPressed && onScreen && !enemyController.reticle)
             {
-                randomDelay = Random.Range(0.0f, randomDelayMax);
-                StartCoroutine(DelayInstantiate(randomDelay, enemy));
+                CreateReticle(enemy);
             } else if (enemyController.reticle && (!missileBtnPressed || !onScreen))
             {
-                targetCount -= 1;
-                Object.Destroy(enemyController.reticle);
-                enemyController.reticle = null;
+                DestroyReticle();
             }
         }
     }
 
-    IEnumerator DelayInstantiate(float delay, GameObject enemy)
+    void CheckEnemyIsOnScreen(GameObject enemy)
+    {
+        screenPoint = currentCamera.WorldToViewportPoint(enemy.transform.position);
+        onScreen = screenPoint.z > 0 && screenPoint.x > 0 && screenPoint.x < 1 && screenPoint.y > 0 && screenPoint.y < 1;
+    }
+
+    void CreateReticle(GameObject enemy)
+    {
+        randomDelay = Random.Range(0.0f, randomDelayMax);
+        StartCoroutine(DelayInstantiateCoroutine(randomDelay, enemy));
+    }
+
+    void DestroyReticle()
+    {
+        targetCount -= 1;
+        Object.Destroy(enemyController.reticle);
+        enemyController.reticle = null;
+    }
+
+    IEnumerator DelayInstantiateCoroutine(float delay, GameObject enemy)
     {
         yield return new WaitForSecondsRealtime(delay);
 
